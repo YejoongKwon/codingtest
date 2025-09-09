@@ -67,11 +67,50 @@ def select_sort(word):
     n = len(word)
 
     for i in range(n-1):
-        maximum = i
+        lst = i
         for j in range(i+1, n):
-            if word[maximum]<word[j]:
-                maximum = j
+            if word[lst]>word[j]:
+                lst = j
 
-        word[i], word[maximum] = word[maximum], word[i]
+        word[i], word[lst] = word[lst], word[i]
 
     return word
+def bubble_sort(word):
+    word = list(word)
+    for i in range(len(word)):
+        for j in range(0,len(word)-i-1):
+            if word[j] > word[j+1]:
+                temp = word[j]
+                word[j] = word[j+1]
+                word[j+1]= temp
+    return word
+
+def binary_search(array, target):
+    low = 0
+    high = len(array)-1
+    while low <= high:
+        mid = low + (high-low)//2
+        if array[mid] == target:
+            return mid
+        elif array[mid] < target:
+            low = mid+1
+        else:
+            high = mid-1
+    return -1
+
+def binary_search_ver2(arr, key, low=0, high=None):
+    if high is None:
+        high = len(arr) - 1
+    mid = low +(high-low)//2
+
+    if low > high:
+        return -1
+
+    else:
+        if arr[mid] == key:
+            return mid
+        elif arr[mid] < key:
+            return binary_search_ver2(arr, key, low+1, high)
+        else:
+            return binary_search_ver2(arr, key, low, high-1)
+
