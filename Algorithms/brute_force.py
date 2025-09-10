@@ -62,28 +62,7 @@ def bfs_queue(graph, start):
             que.put(u)
 
 
-def select_sort(word):
-    word = list(word)
-    n = len(word)
 
-    for i in range(n-1):
-        lst = i
-        for j in range(i+1, n):
-            if word[lst]>word[j]:
-                lst = j
-
-        word[i], word[lst] = word[lst], word[i]
-
-    return word
-def bubble_sort(word):
-    word = list(word)
-    for i in range(len(word)):
-        for j in range(0,len(word)-i-1):
-            if word[j] > word[j+1]:
-                temp = word[j]
-                word[j] = word[j+1]
-                word[j+1]= temp
-    return word
 
 def binary_search(array, target):
     low = 0
